@@ -410,14 +410,8 @@ function handleInstantMatch(userId, data) {
     // Remove from active matches
     for (const [matchId, match] of activeMatches.entries()) {
         if (match.p1 === userId || match.p2 === userId) {
-            return createCorsResponse({Add commentMore actions
-                status: 'already-matched',
-                matchId,
-                partnerId,
-                isInitiator: match.p1 === userId,
-                message: 'User already in active match',
-                timestamp: Date.now()Add commentMore actions
-            });
+            activeMatches.delete(matchId);
+            break;
         }
     }
     
